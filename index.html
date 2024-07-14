@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicios de Scripts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            background-color: #3e8e41;
+        }
+    </style>
+    <script>
+        function checkDrivingAge() {
+            let age = prompt("Por favor, ingresa tu edad:");
+            if (age !== null) {
+                age = parseInt(age);
+                if (isNaN(age)) {
+                    alert("Por favor, ingresa un número válido.");
+                } else {
+                    if (age >= 18) {
+                        alert("Ya puedes conducir.");
+                    } else {
+                        alert("Aún no puedes conducir.");
+                    }
+                }
+            }
+        }
+
+        function showGrade() {
+            let grade = prompt("Por favor, ingresa tu nota (número):");
+            if (grade !== null) {
+                grade = parseFloat(grade);
+                if (isNaN(grade) || grade < 0 || grade > 10) {
+                    alert("Por favor, ingresa un número válido entre 0 y 10.");
+                } else {
+                    let result;
+                    if (grade < 3) {
+                        result = "Muy deficiente";
+                    } else if (grade < 5) {
+                        result = "Insuficiente";
+                    } else if (grade < 6) {
+                        result = "Suficiente";
+                    } else if (grade < 7) {
+                        result = "Bien";
+                    } else if (grade < 9) {
+                        result = "Notable";
+                    } else {
+                        result = "Sobresaliente";
+                    }
+                    alert("Tu calificación es: " + result);
+                }
+            }
+        }
+
+        function concatenateStrings() {
+            let result = "";
+            while (true) {
+                let text = prompt("Ingresa una cadena de texto (o pulsa cancelar para terminar):");
+                if (text === null) {
+                    break;
+                }
+                if (result !== "") {
+                    result += "-";
+                }
+                result += text;
+            }
+            alert("Cadenas concatenadas: " + result);
+        }
+
+        function calculateDNILetter() {
+            const letters = "TRWAGMYFPDXBNJZSQVHLCKE";
+            while (true) {
+                let dni = prompt("Introduce un número de DNI (0-99999999) o pulsa cancelar para salir:");
+                if (dni === null) {
+                    break;
+                }
+                dni = parseInt(dni);
+                if (isNaN(dni) || dni < 0 || dni > 99999999) {
+                    alert("Por favor, introduce un número válido.");
+                } else {
+                    let letter = letters.charAt(dni % 23);
+                    alert("La letra correspondiente al DNI " + dni + " es: " + letter);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Ejercicios de Scripts</h1>
+        <button onclick="checkDrivingAge()">Comprobar si puedes conducir</button>
+        <button onclick="showGrade()">Mostrar calificación</button>
+        <button onclick="concatenateStrings()">Concatenar cadenas de texto</button>
+        <button onclick="calculateDNILetter()">Calcular letra de DNI</button>
+    </div>
+</body>
+</html>
